@@ -1,81 +1,144 @@
 <!DOCTYPE html>
 <html lang="sw">
 <head>
-    <meta charset="UTF-8">
-    <title>Kanisa la Waadventista wa Sabato Bwanga</title>
-
-    <!-- Font Awesome CDN (icons) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <!-- CSS yako -->
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Kuhusu Kanisa | Kanisa la Waadventista wa Sabato Bwanga</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header class="header">
-        <div class="overlay">
-            <img src="images/logo.jfif" alt="Logo ya Kanisa" class="logo">
-            <h1>KANISA LA WAADVENTISTA WA SABATO BWANGA</h1>
-            <p>Pamoja nasi ndani ya NWTF</p>
+<header class="header">
+    <div class="overlay">
+        <img src="images/logo.jfif" alt="Logo ya Kanisa" class="logo">
+        <h1>KANISA LA WAADVENTISTA WA SABATO BWANGA</h1>
+        <p>Pamoja nasi, tukishirikiana kueneza upendo na neno la Mungu!</p>
+    </div>
+</header>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+        <div class="nav-links" id="navLinks">
+            <a href="mwanzo.html">🏠 Mwanzo</a>
+            <a href="kuhusu.html" class="active">⛪ Kuhusu Kanisa</a>
+            <a href="ratiba.html">📅 Ratiba ya Ibada</a>
+            <a href="mahubiri.html">🎤 Mahubiri</a>
+            <a href="uongozi.html">👤 Uongozi</a>
         </div>
-    </header>
+    </div>
+</nav>
 
-    <!-- MENU -->
-    <nav>
-        <a href="mwanzo.html">🏠 Mwanzo</a>
-        <a href="kuhusu.html" class="active">⛪ Kuhusu Kanisa</a>
-        <a href="ratiba.html">📅 Ratiba ya Ibada</a>
-        <a href="mahubiri.html">🎤 Mahubiri</a>
-       <a href="uongozi.html" class="active">👤 Uongozi wa Kanisa</a>
-    </nav>
+<section id="content" class="content dual-column">
+    <div class="content-left">
+        <h2>KUHUSU KANISA</h2>
+        <h3>Biblia</h3>
+        <p>Biblia ni Neno la Mungu na mwongozo wa maisha ya Kikristo.</p>
 
-    <!-- MAIN CONTENT -->
-    <section class="content">
-        <h2>Kuhusu Kanisa Letu</h2>
-        <p>
-            Kanisa la Waadventista wa Sabato Bwanga ni sehemu ya kanisa
-            la Waadventista wa Sabato duniani, linalolenga kumwabudu Mungu,
-            kuhubiri Injili ya Yesu Kristo, na kuwahudumia watu wote kwa upendo na uaminifu.
-        </p>
+        <h3>Sabato</h3>
+        <p>Sabato ni siku takatifu, tukiheshimu kama siku ya ibada na mapumziko (Kutoka 20:8-11).</p>
 
-        <h3>Historia ya Kanisa</h3>
-        <p>
-            Kanisa limeanzishwa mwaka 1980 na lengo la kueneza neno la Mungu
-            na kutoa msaada kwa jamii. Tumefanikisha shughuli nyingi za kijamii na ibada.
-        </p>
+        <h3>Afya na Usafi</h3>
+        <p>Mtindo wa maisha wenye afya: lishe bora, hakuna pombe, sigara au vyakula vyenye madhara.</p>
 
-        <h3>Maono na Dira Yetu</h3>
-        <ul>
-            <li>Kuhamasisha waumini kuishi maisha ya imani</li>
-            <li>Kuhudumia jamii kwa upendo na huruma</li>
-            <li>Kukuza uelewa wa Biblia na kanuni zake</li>
-        </ul>
-    </section>
+        <h3>Kujitolea</h3>
+        <p>Huduma kwa jamii, kuhubiri Injili na kusaidia wahitaji.</p>
+    </div>
+    <div class="content-right">
+        <h2>Fomu ya Kuomba Ushirika / Kuhama</h2>
+        <form id="ushirikaForm">
+            <label for="jina">Jina Kamili:</label>
+            <input type="text" id="jina" name="jina" required>
 
-    <!-- FOOTER -->
-    <footer>
+            <label for="umri">Umri:</label>
+            <input type="number" id="umri" name="umri" required>
+
+            <label for="maeneo">Mahali Unapoishi:</label>
+            <input type="text" id="maeneo" name="maeneo" required>
+
+            <label for="simu">Namba ya Simu / WhatsApp:</label>
+            <input type="tel" id="simu" name="simu" required>
+
+            <label for="aina">Aina ya Ombi:</label>
+            <select id="aina" name="aina" required>
+                <option value="">-- Chagua --</option>
+                <option value="kuomba ushirika">Kuomba Ushirika</option>
+                <option value="kuhama">Kuhama Ushirika</option>
+            </select>
+
+            <label for="maelezo">Maelezo Zaidi (hiari):</label>
+            <textarea id="maelezo" name="maelezo" rows="4"></textarea>
+
+            <button type="submit">Tuma Taarifa</button>
+        </form>
+    </div>
+</section>
+
+
+<script>
+document.getElementById('ushirikaForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // prevent default submission
+
+    // Chukua data kutoka fomu
+    const jina = document.getElementById('jina').value;
+    const umri = document.getElementById('umri').value;
+    const maeneo = document.getElementById('maeneo').value;
+    const simu = document.getElementById('simu').value;
+    const aina = document.getElementById('aina').value;
+    const maelezo = document.getElementById('maelezo').value || 'Hakuna maelezo zaidi.';
+
+    // Message kwa karani
+    const msg = `Taarifa mpya ya Ushirika/Kuhama:\n\nJina: ${jina}\nUmri: ${umri}\nMahali: ${maeneo}\nSimu: ${simu}\nAina ya Ombi: ${aina}\nMaelezo: ${maelezo}`;
+
+    // =======================
+    // 1. Notification kwa WhatsApp
+    // =======================
+    const karaniPhone = '+255688068827'; // Badilisha namba ya karani
+    const whatsappLink = `https://wa.me/${karaniPhone.replace('+','')}?text=${encodeURIComponent(msg)}`;
+    window.open(whatsappLink, '_blank');
+
+    // =======================
+    // 2. Notification kwa Email
+    // =======================
+    const karaniEmail = 'benjamarco95@gmail.com'; // Badilisha email
+    const subject = `Taarifa mpya ya Ushirika/Kuhama`;
+    const mailtoLink = `mailto:${karaniEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msg)}`;
+    window.open(mailtoLink, '_blank');
+
+    // Optional: reset fomu baada ya submission
+    this.reset();
+    alert('Taarifa imepelekwa kwa karani kupitia WhatsApp na Email!');
+});
+</script>
+
+
+
+
+
+
+
+<footer>
     <div class="footer-content">
-        
         <div class="footer-contact">
-            <a href="https://youtu.be/ckNOSBDdYU4?si=h9wMNeJ96sFzqUP5" target="_blank">
-                <i class="fab fa-youtube"></i> BWANGA SDA CHURCH
-            </a>
-            <a href="https://www.facebook.com/BWANGASDAChurch" target="_blank">
-                <i class="fab fa-facebook-f"></i> BWANGA SDA CHURCH
-            </a>
-            <a href="https://www.tiktok.com/@BWANGASDAChurch" target="_blank">
-                <i class="fab fa-tiktok"></i> BWANGA SDA CHURCH
-            </a>
-            <a href="https://www.instagram.com/BWANGASDAChurch" target="_blank">
-                <i class="fab fa-instagram"></i> BWANGA SDA CHURCH
-            </a>
+            <a href="#" target="_blank"><i class="fab fa-youtube"></i> BWANGA SDA CHURCH</a>
+            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i> BWANGA SDA CHURCH</a>
+            <a href="#" target="_blank"><i class="fab fa-tiktok"></i> BWANGA SDA CHURCH</a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i> BWANGA SDA CHURCH</a>
             <span><i class="fas fa-phone-alt"></i> 0688068827</span>
         </div>
         <p>&copy; 2025 Kanisa la Waadventista wa Sabato Bwanga. Haki zote zimehifadhiwa.</p>
     </div>
 </footer>
 
+<script>
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("show");
+}
+document.querySelectorAll('#navLinks a').forEach(link => {
+    link.addEventListener('click', () => document.getElementById('navLinks').classList.remove('show'));
+});
+</script>
 
 </body>
 </html>
